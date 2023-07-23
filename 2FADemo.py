@@ -11,11 +11,11 @@ verification_code = random.randint(99999,1000000) #pseudo random, TODO
 with open('config') as f:
     email_password = f.readline()
 
-
 subject = 'New sign in to 2FADemo'
 body = """
 Hi, your verification code is  {}
 """.format(verification_code)
+
 em = EmailMessage()
 em['From'] = email_sender
 em['To'] = email_receiver
