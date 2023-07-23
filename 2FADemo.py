@@ -5,8 +5,8 @@ import random
 
 email_sender = 'bissfit2fa@gmail.com'
 email_password = ''
-email_receiver = 'directspam@outlook.com'
-verification_code = random.randint(99999,1000000)
+email_receiver = ''
+verification_code = random.randint(99999,1000000) #pseudo random, TODO
 
 with open('config') as f:
     email_password = f.readline()
