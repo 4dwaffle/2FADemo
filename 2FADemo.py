@@ -15,7 +15,6 @@ with open('config') as f:
 def connect_db():
     return sqlite3.connect("login.db")
 
-
 def send_email(receiver, code):
     subject = 'New sign in to 2FADemo'
     body = """
@@ -34,11 +33,10 @@ def send_email(receiver, code):
         smtp.login(email_sender, email_password)
         smtp.sendmail(email_sender, email_receiver, em.as_string())
 
-def login(email, password) -> bool:
-    hash = get_hash(password)
+def login(email, password_hash) -> bool:
     hash_from_db = fetch_pw(email)
     
-    if hash == hash_from_db:
+    if password_hash == hash_from_db:
         return True
     else:
         return False
@@ -91,7 +89,7 @@ if __name__ == '__main__':
     if not email_exists(email_receiver):
         create_account(email_receiver)
 
-    password_receiver = getpass("Password: ")
+    password_receiver = get_hash(getpass("Password: "))
     if login(email_receiver, password_receiver):
         send_email(email_receiver, verification_code)
         receiver_code = input("Verification Code: ")
