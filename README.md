@@ -1,5 +1,5 @@
 # 2FA Demo
-This is a demo created for final project at [BISSIT](https://www.fit.vut.cz/events/bissit/). It eneables creating account and loging in, which is secured with a six digit security code sent to an email address of the account.
+This is a demo created for final project at [BISSIT](https://www.fit.vut.cz/events/bissit/). It eneables creating an account and loging in, which is secured with a six digit security code sent to the accounts email address.
 
 # Setup
 Change **email_sender** to your email adress and put file **config** with [apppassword](https://support.google.com/accounts/answer/185833?hl=en) to this email into the same directory as 2FADemo.py.
